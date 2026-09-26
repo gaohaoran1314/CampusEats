@@ -1,0 +1,31 @@
+#CampusEats save 1
+[customer]|id=1020|no=2024050301059|name=高浩然|building=603|balance=17900
+[customer]|id=1024|no=13896588878|name=高浩然|building=603|balance=20000
+[merchant]|id=1006|name=老王面馆|location=一食堂 1 楼 3 号窗口|rating=4.80|accepting=0
+[dish]|mid=1006|id=1001|name=红烧牛肉面|cat=主食|price=1200|stock=-1|on=1
+[dish]|mid=1006|id=1002|name=番茄鸡蛋面|cat=主食|price=1000|stock=-1|on=1
+[dish]|mid=1006|id=1003|name=炸酱面|cat=主食|price=1100|stock=-1|on=1
+[dish]|mid=1006|id=1004|name=凉拌黄瓜|cat=小吃|price=500|stock=-1|on=1
+[dish]|mid=1006|id=1005|name=卤蛋|cat=小吃|price=200|stock=60|on=1
+[merchant]|id=1011|name=川味香锅|location=三食堂 2 楼东侧|rating=4.60|accepting=1
+[dish]|mid=1011|id=1007|name=香锅单人餐|cat=套餐|price=1800|stock=39|on=1
+[dish]|mid=1011|id=1008|name=香锅双人餐|cat=套餐|price=3300|stock=20|on=1
+[dish]|mid=1011|id=1009|name=米饭|cat=主食|price=100|stock=-1|on=1
+[dish]|mid=1011|id=1010|name=酸梅汤|cat=饮品|price=300|stock=80|on=1
+[merchant]|id=1015|name=轻食沙拉吧|location=二食堂 3 楼|rating=4.30|accepting=1
+[dish]|mid=1015|id=1012|name=鸡胸肉沙拉|cat=轻食|price=1600|stock=15|on=1
+[dish]|mid=1015|id=1013|name=全麦火腿三明治|cat=轻食|price=1300|stock=15|on=1
+[dish]|mid=1015|id=1014|name=无糖豆浆|cat=饮品|price=400|stock=-1|on=1
+[merchant]|id=1019|name=北门炸鸡|location=北门商业街 12 号|rating=4.10|accepting=0
+[dish]|mid=1019|id=1016|name=香辣鸡腿堡|cat=小吃|price=1500|stock=-1|on=1
+[dish]|mid=1019|id=1017|name=鸡米花|cat=小吃|price=900|stock=0|on=1
+[dish]|mid=1019|id=1018|name=冰可乐|cat=饮品|price=500|stock=-1|on=1
+[rider]|id=1021|no=344886608|name=高浩然
+[rider]|id=1023|no=34486608|name=高浩然
+[order]|id=1022|cid=1020|cname=高浩然|addr=603|mid=1011|mname=川味香锅|goods=1800|pack=100|deliv=200|disc=0|total=2100|note=|status=completed|created=1789568970|rider=1021|rname=高浩然|closed=1789569037
+[item]|oid=1022|did=1007|name=香锅单人餐|price=1800|qty=1
+[log]|oid=1022|status=placed|actor=学生|at=1789568970
+[log]|oid=1022|status=accepted|actor=商家接单|at=1789568997
+[log]|oid=1022|status=ready|actor=商家出餐|at=1789569007
+[log]|oid=1022|status=delivering|actor=高浩然|at=1789569024
+[log]|oid=1022|status=completed|actor=骑手|at=1789569037
