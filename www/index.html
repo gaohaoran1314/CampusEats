@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CampusEats</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div class="topbar">
+    <div class="wrap spread">
+        <div class="brand">CampusEats</div>
+        <div class="muted">校园外卖 · 本地服务端</div>
+    </div>
+</div>
+
+<div class="wrap">
+
+    <div class="card">
+        <h2>挑一个身份进去</h2>
+        <p class="muted">三个页面各管一件事，互不影响。走错了点左上角回来。</p>
+        <div class="row">
+            <a class="btn btn-primary" href="student.html">学生 · 点外卖</a>
+            <a class="btn" href="merchant.html">商家 · 接单出餐</a>
+            <a class="btn" href="rider.html">骑手 · 抢单送达</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>现在的数据</h2>
+        <div id="stats" class="row muted">读取中…</div>
+    </div>
+
+    <div class="card">
+        <h2>服务端</h2>
+        <div id="ping" class="muted">读取中…</div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+<script>
+// 首页就干两件事：把 /api/stats 的数字摆出来，把 /api/ping 的启动信息摆出来。
+// 它是个体检页 —— 网页打不开、数据不对，先看这一页说了什么。
+boot(async function () {
+    const s = await API.get('/api/stats');
+    const cells = [
+        ['订单总数', s.orderCount],
+        ['进行中',   s.activeCount],
+        ['已完成',   s.completedCount],
+        ['营业额',   money(s.turnover)],
+        ['客单价',   money(s.avgTicket)]
+    ];
+    document.getElementById('stats').innerHTML = cells.map(function (c) {
+        return '<div class="stat"><div class="stat-num">' + esc(c[1]) +
+               '</div><div class="muted">' + esc(c[0]) + '</div></div>';
+    }).join('');
+});
+
+boot(async function () {
+    const p = await API.get('/api/ping');
+    document.getElementById('ping').innerHTML =
+        '存档 <code>' + esc(p.saveFile) + '</code><br>' +
+        '启动时载入：' + esc(p.customers) + ' 名学生、' + esc(p.merchants) +
+        ' 家商户、' + esc(p.riders) + ' 名骑手、' + esc(p.orders) + ' 笔订单<br>' +
+        '启动时间：' + esc(p.loadedAt);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>点外卖 · CampusEats</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div class="topbar">
+    <div class="wrap spread">
+        <div class="brand">CampusEats · 学生</div>
+        <div class="row">
+            <span class="muted">我是</span>
+            <select id="who"></select>
+            <span id="balance">—</span>
+            <a class="btn btn-sm" href="index.html">回首页</a>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+
+    <div id="msg" class="msg" hidden></div>
+
+    <div class="card">
+        <div class="spread">
+            <div id="meBox" class="muted">读取中…</div>
+            <div class="row">
+                <input type="number" id="topupYuan" class="qty" value="50" min="1" max="1000">
+                <button class="btn btn-sm" id="topup">充 50 元</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>店铺</h2>
+        <input type="text" id="q" class="grow" style="width:100%"
+               placeholder="搜店名或位置，比如「面」「北门」">
+        <div id="shops" class="grid mt12"></div>
+    </div>
+
+    <div class="card" id="menuCard" hidden>
+        <div class="spread">
+            <h2 id="menuTitle" style="margin:0"></h2>
+            <button class="btn btn-sm btn-ghost" id="closeMenu">收起</button>
+        </div>
+        <div id="menu"></div>
+    </div>
+
+    <div class="card" id="cartCard" hidden>
+        <h2>购物车</h2>
+        <div id="cartLines"></div>
+        <div class="spread mt12">
+            <div>菜品小计 <b id="cartSum">¥0.00</b></div>
+            <div class="row">
+                <input type="text" id="addr" placeholder="送到哪">
+                <input type="text" id="note" placeholder="备注（可空）">
+                <button class="btn btn-primary" id="place">下单</button>
+            </div>
+        </div>
+        <div class="muted mt8">
+            打包费、配送费、满减都由服务端算，以提交后回的实付金额为准。
+        </div>
+    </div>
+
+    <h2 class="mt20">我的订单</h2>
+    <div id="orders"></div>
+
+</div>
+
+<script src="app.js"></script>
+<script src="student.js"></script>
+
+</body>
+</html>

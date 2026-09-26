@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商家 · CampusEats</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div class="topbar">
+    <div class="wrap spread">
+        <div class="brand">CampusEats · 商家</div>
+        <div class="row">
+            <span class="muted">我的店</span>
+            <select id="shop"></select>
+            <span id="stateTag">—</span>
+            <a class="btn btn-sm" href="index.html">回首页</a>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+
+    <div id="msg" class="msg" hidden></div>
+
+    <div class="card">
+        <div class="spread">
+            <div id="shopBox" class="muted">读取中…</div>
+            <button class="btn" id="toggle" disabled>—</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>看板</h2>
+        <div id="stats" class="row">读取中…</div>
+        <div class="muted mt8">进账只算「已完成」订单的菜品金额，不含打包费和配送费。</div>
+    </div>
+
+    <div class="card">
+        <div class="spread">
+            <h2 style="margin:0">订单</h2>
+            <div id="filterBar" class="row"></div>
+        </div>
+        <div id="orders" class="mt12">读取中…</div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+<script src="merchant.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+/* CampusEats 前端公共样式
+ *
+ * 没上框架，也没引 CDN：一共三个页面，手写这点 CSS 比引 UI 库省事 ——
+ * 不用等外网、不用记人家的类名，改起来一眼看到底。
+ */
+
+:root {
+    --bg:      #f2f4f7;
+    --card:    #ffffff;
+    --line:    #e4e7ec;
+    --text:    #1f2933;
+    --muted:   #667085;
+    --brand:   #2f7a4d;
+    --brand-d: #25643e;
+    --danger:  #b3261e;
+    --warn:    #b45309;
+    --radius:  10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.6 "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+}
+
+a { color: var(--brand); }
+
+code {
+    background: #eef0f2;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* ---------- 骨架 ---------- */
+
+.topbar {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.topbar .wrap { padding-top: 10px; padding-bottom: 10px; }
+
+.brand { font-weight: 700; font-size: 17px; }
+
+.wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin: 14px 0;
+}
+
+.card h2 { font-size: 16px; margin: 0 0 10px; }
+
+/* ---------- 常用布局 ---------- */
+
+.row    { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.spread { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.muted  { color: var(--muted); font-size: 13px; }
+.grow   { flex: 1 1 200px; }
+.mt8    { margin-top: 8px; }
+.mt12   { margin-top: 12px; }
+.mt20   { margin-top: 20px; }
+
+/* ---------- 按钮 ---------- */
+
+.btn {
+    display: inline-block;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--text);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover { border-color: #c9ced6; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.btn-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.btn-primary:hover { background: var(--brand-d); border-color: var(--brand-d); }
+
+.btn-danger { color: var(--danger); border-color: #eccac7; }
+.btn-danger:hover { background: #fdf2f1; }
+
+.btn-ghost { border-color: transparent; color: var(--muted); padding: 4px 8px; }
+.btn-ghost:hover { color: var(--danger); border-color: var(--line); }
+
+.btn-sm { padding: 3px 10px; font-size: 13px; }
+
+/* ---------- 状态标签 ---------- */
+
+/* 六个订单状态 + 店铺的营业/休息，颜色都是手挑的浅底深字，打印也看得清 */
+.tag {
+    display: inline-block;
+    padding: 1px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 20px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.tag-placed     { background: #eef2ff; color: #3538cd; border-color: #d5d9f8; }
+.tag-accepted   { background: #fff6e6; color: var(--warn); border-color: #f6e0b5; }
+.tag-ready      { background: #e8f5ee; color: var(--brand); border-color: #c6e5d3; }
+.tag-delivering { background: #e6f2fd; color: #0b6bcb; border-color: #c2ddf8; }
+.tag-completed  { background: #eef0f2; color: #475467; border-color: #dfe3e8; }
+.tag-canceled   { background: #fdf2f1; color: var(--danger); border-color: #f0cdca; }
+.tag-open       { background: #e8f5ee; color: var(--brand); border-color: #c6e5d3; }
+.tag-closed     { background: #eef0f2; color: #475467; border-color: #dfe3e8; }
+
+/* ---------- 消息条 ---------- */
+
+.msg {
+    margin: 12px 0;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 1px solid;
+}
+
+.msg-ok  { background: #e8f5ee; border-color: #c6e5d3; color: #1f5c39; }
+.msg-bad { background: #fdf2f1; border-color: #f0cdca; color: #8c1d18; }
+
+/* ---------- 首页 ---------- */
+
+.stat { min-width: 92px; }
+.stat-num { font-size: 22px; font-weight: 700; }
+
+/* ---------- 店铺 / 菜单 ---------- */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.shop { margin: 0; cursor: pointer; }
+.shop:hover  { border-color: #c9ced6; }
+.shop.active { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(47,122,77,.15); }
+
+.dish {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+}
+
+.dish-main  { flex: 1 1 auto; min-width: 0; }
+.dish-price { width: 74px; text-align: right; color: var(--danger); font-weight: 600; }
+.dish-buy   { display: flex; gap: 6px; align-items: center; }
+
+/* ---------- 表单控件 ---------- */
+
+input[type=text], input[type=number], select {
+    padding: 6px 9px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: inherit;
+    font-size: 14px;
+    background: #fff;
+    color: var(--text);
+}
+
+.qty { width: 58px; }
+
+/* ---------- 订单 ---------- */
+
+.order { margin: 10px 0; }
+.cart-line { padding: 3px 0; }
+
+.tl {
+    list-style: none;
+    padding: 9px 0 0;
+    margin: 9px 0 0;
+    border-top: 1px dashed var(--line);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.tl li { padding: 1px 0; }

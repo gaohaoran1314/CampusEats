@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>骑手 · CampusEats</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div class="topbar">
+    <div class="wrap spread">
+        <div class="brand">CampusEats · 骑手</div>
+        <div class="row">
+            <span class="muted">我是</span>
+            <select id="who"></select>
+            <a class="btn btn-sm" href="index.html">回首页</a>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+
+    <div id="msg" class="msg" hidden></div>
+
+    <div class="card">
+        <h2>抢单板</h2>
+        <div class="muted">商家出过餐、还没人接的单都在这儿。手快的先得。</div>
+        <div id="board" class="mt12">读取中…</div>
+    </div>
+
+    <div class="card">
+        <h2>我的任务</h2>
+        <div id="tasks">读取中…</div>
+    </div>
+
+    <div class="card">
+        <h2>战绩</h2>
+        <div id="stats" class="row">读取中…</div>
+        <div class="muted mt8">配送费合计只算送完的单。</div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+<script src="rider.js"></script>
+
+</body>
+</html>
